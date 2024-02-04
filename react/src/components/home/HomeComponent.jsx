@@ -12,9 +12,12 @@ import {
   Icon,
   useToast,
   Image,
+  Flex,
 } from "@chakra-ui/react";
 import { SearchIcon, LinkIcon, AtSignIcon } from "@chakra-ui/icons";
-import Sidebar from "../layouts/Sidebar";
+import Sidebar from "../../layouts/Sidebar";
+import { TimelineComponent } from "./TimelineComponent";
+import RightsideComponent from "./RightsideComponent";
 
 const HomeComponent = () => {
   const [url, setUrl] = useState("");
@@ -33,13 +36,17 @@ const HomeComponent = () => {
   };
 
   return (
-    <HStack>
+    <Flex justifyContent={"space-between"}>
       <VStack>
         <Sidebar></Sidebar>
       </VStack>
-      <VStack></VStack>
-      <VStack></VStack>
-    </HStack>
+      <VStack>
+        <TimelineComponent></TimelineComponent>
+      </VStack>
+      <VStack>
+        <RightsideComponent></RightsideComponent>
+      </VStack>
+    </Flex>
   );
 };
 

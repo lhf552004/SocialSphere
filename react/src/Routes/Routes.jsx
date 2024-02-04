@@ -14,7 +14,7 @@ import ShortenedUIComponent from "../components/ShortenedUIComponent";
 import PricingComponent from "../components/PricingComponent";
 import QrCodesComponent from "../components/QrCodesComponent";
 import ResourcesComponent from "../components/ResourcesComponent";
-import HomeComponent from "../components/HomeComponent";
+import HomeComponent from "../components/home/HomeComponent";
 
 const routes = [
   {
