@@ -13,15 +13,7 @@ function FriendRequestCard() {
   const borderColor = useColorModeValue("gray.200", "gray.600");
 
   return (
-    <HStack
-      p={4}
-      borderWidth="1px"
-      borderRadius="lg"
-      borderColor={borderColor}
-      alignItems="center"
-      spacing={4}
-      divider={<StackDivider borderColor={borderColor} />}
-    >
+    <HStack p={4} alignItems="center" spacing={4}>
       <Image
         borderRadius="full"
         boxSize="50px"
