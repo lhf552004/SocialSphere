@@ -35,15 +35,15 @@ const routes = [
         element: <HomeComponent />,
       },
       {
-        path: "computers",
+        path: "video",
         element: (
           <ProtectedRoute>
-            <ComputersComponent />
+            <PricingComponent />
           </ProtectedRoute>
         ), // Wrap protected routes with this
       },
       {
-        path: "url-shortner",
+        path: "market",
         element: (
           <ProtectedRoute>
             <UrlShortnerComponent />
@@ -51,7 +51,7 @@ const routes = [
         ), // Wrap protected routes with this
       },
       {
-        path: "shortened-link",
+        path: "group",
         element: (
           <ProtectedRoute>
             <ShortenedUIComponent />
@@ -59,7 +59,7 @@ const routes = [
         ), // Wrap protected routes with this
       },
       {
-        path: "qr-codes",
+        path: "gaming",
         element: (
           <ProtectedRoute>
             <QrCodesComponent />

@@ -16,13 +16,29 @@ import {
   useDisclosure,
   HStack,
 } from "@chakra-ui/react";
-import { Link as RouterLink } from "react-router-dom";
+import { NavLink, Link as RouterLink } from "react-router-dom";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import {
+  MdHomeFilled,
+  MdMap,
+  MdOutlineAreaChart,
+  MdVideoLibrary,
+} from "react-icons/md";
+import {
+  FiShoppingCart,
+  FiUsers,
+  FiBell,
+  FiUser,
+  FiMenu,
+  FiMessageCircle,
+} from "react-icons/fi";
+import { FaGamepad } from "react-icons/fa";
+
 import logo from "../assets/logo.ico";
 import { useSigninCheck } from "reactfire";
 import LoginButton from "../components/auth/LoginButton";
@@ -75,7 +91,7 @@ export default function WithSubnavigation() {
             <SearchBar />
           </HStack>
 
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <Flex display={{ base: "none", md: "flex" }} ml={20} pl={20}>
             <DesktopNav />
           </Flex>
         </Flex>
@@ -126,30 +142,44 @@ export default function WithSubnavigation() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue("gray.600", "gray.200");
+  const linkColor = useColorModeValue("gray", "gray.200");
   const linkHoverColor = useColorModeValue("gray.800", "white");
+  const activeLinkColor = useColorModeValue("green", "green");
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} spacing={4}>
+    <Stack direction={"row"} spacing={12}>
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
-              <Box
-                as="a"
-                p={2}
-                href={navItem.href ?? "#"}
-                fontSize={"sm"}
-                fontWeight={500}
-                color={linkColor}
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor,
+              <NavLink
+                to={navItem.href}
+                style={({ isActive }) => {
+                  console.log(isActive);
+                  return {
+                    display: "block", // NavLink is inline by default
+                    p: 2,
+                    color: isActive ? activeLinkColor : linkColor,
+                    textDecoration: "none", // You can remove this if you want text decoration on hover
+                    _hover: {
+                      textDecoration: "none",
+                      color: linkHoverColor,
+                    },
+                  };
                 }}
               >
-                {navItem.label}
-              </Box>
+                <Box
+                  as="a"
+                  p={2}
+                  _hover={{
+                    textDecoration: "none",
+                    color: linkHoverColor,
+                  }}
+                >
+                  {navItem.icon}
+                </Box>
+              </NavLink>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -282,30 +312,28 @@ const MobileNavItem = ({ label, children, href }) => {
 
 const NAV_ITEMS = [
   {
-    label: "Products",
-    children: [
-      {
-        label: "URL Shortner",
-        subLabel: "Customize, share, and track links",
-        href: "url-shortner",
-      },
-      {
-        label: "QR Codes",
-        subLabel: "Dynamic solutions to fit every business need",
-        href: "qr-codes",
-      },
-    ],
+    label: "Home",
+    href: "",
+    icon: <Icon as={MdHomeFilled} mt={2} boxSize={10} />,
   },
   {
-    label: "Pricing",
-    href: "pricing",
+    label: "Video",
+    href: "video",
+    icon: <Icon as={MdVideoLibrary} mt={2} boxSize={10} />,
   },
   {
-    label: "Resources",
-    href: "resources",
+    label: "Market",
+    href: "market",
+    icon: <Icon as={FiShoppingCart} mt={2} boxSize={10} />,
   },
   {
-    label: "About",
-    href: "about",
+    label: "Groups",
+    href: "group",
+    icon: <Icon as={FiUsers} mt={2} boxSize={10} />,
+  },
+  {
+    label: "Gaming",
+    href: "gaming",
+    icon: <Icon as={FaGamepad} mt={2} boxSize={10} />,
   },
 ];
