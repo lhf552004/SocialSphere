@@ -170,7 +170,6 @@ const DesktopNav = () => {
                 }}
               >
                 <Box
-                  as="a"
                   p={2}
                   _hover={{
                     textDecoration: "none",

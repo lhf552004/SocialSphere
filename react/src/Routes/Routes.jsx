@@ -4,7 +4,6 @@ import Login from "./Login";
 import Main from "../layouts/Main";
 import About from "./About";
 
-import ComputersComponent from "../components/ComputersComponent";
 import Layout from "../layouts/Layout";
 import UsersComponent from "../components/UsersComponent";
 import ProtectedRoute from "./ProtectedRoute";
