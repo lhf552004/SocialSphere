@@ -35,7 +35,7 @@ export const TimelineComponent = () => {
         <StoryCard></StoryCard>
       </HStack>
       <VStack>
-        <MarketplaceCardComponent images={images}></MarketplaceCardComponent>
+        <MarketplaceCardComponent></MarketplaceCardComponent>
       </VStack>
     </VStack>
   );
