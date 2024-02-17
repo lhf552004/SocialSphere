@@ -13,6 +13,7 @@ import {
   useToast,
   Image,
   Flex,
+  useBreakpointValue,
 } from "@chakra-ui/react";
 import { SearchIcon, LinkIcon, AtSignIcon } from "@chakra-ui/icons";
 import Sidebar from "../../layouts/Sidebar";
@@ -23,6 +24,9 @@ const HomeComponent = () => {
   const [url, setUrl] = useState("");
   const [backHalf, setBackHalf] = useState("");
   const toast = useToast();
+  // useBreakpointValue hook can be used to apply values for different breakpoints
+  const sidebarDisplay = useBreakpointValue({ base: "none", md: "flex" });
+  const rightsideDisplay = useBreakpointValue({ base: "none", md: "flex" });
 
   const handleShortenURL = () => {
     // Logic to shorten URL
@@ -37,13 +41,13 @@ const HomeComponent = () => {
 
   return (
     <Flex justifyContent={"space-between"}>
-      <VStack>
+      <VStack display={sidebarDisplay}>
         <Sidebar></Sidebar>
       </VStack>
       <VStack>
         <TimelineComponent></TimelineComponent>
       </VStack>
-      <VStack>
+      <VStack display={rightsideDisplay}>
         <RightsideComponent></RightsideComponent>
       </VStack>
     </Flex>

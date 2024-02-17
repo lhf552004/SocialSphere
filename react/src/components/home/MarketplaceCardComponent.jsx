@@ -180,7 +180,13 @@ function SocialMediaCard() {
   const itemTitle = "Coach Purse Electric Blue Mollie 25";
 
   return (
-    <VStack maxW="md" borderWidth="1px" borderRadius="lg" overflow="hidden">
+    <VStack
+      maxW="md"
+      borderWidth="1px"
+      borderRadius="lg"
+      p={4}
+      overflow="hidden"
+    >
       {/* Header */}
       <Flex align="center" justify="space-between" p={4}>
         <HStack spacing={4}>
@@ -261,36 +267,3 @@ function SocialMediaCard() {
 }
 
 export default SocialMediaCard;
-
-// const MarketplaceCardComponent = () => {
-//   const images = [
-//     "marketplace/playstationportal/pic1.jpg",
-//     "marketplace/playstationportal/pic2.jpg",
-//     "marketplace/playstationportal/pic3.jpg",
-//     "marketplace/playstationportal/pic4.jpg",
-//     "marketplace/playstationportal/pic5.jpg",
-//   ];
-//   return (
-//     <Card maxW="sm">
-//       <CardHeader>
-//         <Heading size="md">Client Report</Heading>
-//       </CardHeader>
-//       <CardBody>
-//         <ImageGalleryCard images={images}></ImageGalleryCard>
-//       </CardBody>
-//       <Divider />
-//       <CardFooter>
-//         <ButtonGroup spacing="2">
-//           <Button variant="solid" colorScheme="blue">
-//             Buy now
-//           </Button>
-//           <Button variant="ghost" colorScheme="blue">
-//             Add to cart
-//           </Button>
-//         </ButtonGroup>
-//       </CardFooter>
-//     </Card>
-//   );
-// };
-
-// export default MarketplaceCardComponent;

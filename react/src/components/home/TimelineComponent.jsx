@@ -15,26 +15,46 @@ import {
   Card,
 } from "@chakra-ui/react";
 import { ChevronRightIcon } from "@chakra-ui/icons";
-import StoryCard from "./StoryCard";
+import CreateStoryCard from "./CreateStoryCard";
 import MarketplaceCardComponent from "./MarketplaceCardComponent";
+import StoryCard from "./StoryCard";
+import TellNewsCard from "./TellNewsCard";
 
 export const TimelineComponent = () => {
-  const images = [
-    "marketplace/playstationportal/pic1.jpg",
-    "marketplace/playstationportal/pic2.jpg",
-    "marketplace/playstationportal/pic3.jpg",
-    "marketplace/playstationportal/pic4.jpg",
-    "marketplace/playstationportal/pic5.jpg",
+  const stories = [
+    {
+      imageUrl: "sushi-roll1.jpg",
+      avatarUrl: "Vanessa-Coish.png",
+      name: "Vanessa Coish",
+      title: "Fitness Enthusiast",
+    },
+    {
+      imageUrl: "sushi-roll2.webp",
+      avatarUrl: "Vanessa-Coish.png",
+      name: "Vanessa Coish",
+      title: "Fitness Enthusiast",
+    },
+    {
+      imageUrl: "sushi-roll3.jpeg",
+      avatarUrl: "Vanessa-Coish.png",
+      name: "Vanessa Coish",
+      title: "Fitness Enthusiast",
+    },
   ];
+
   return (
     <VStack>
-      <HStack>
-        <StoryCard></StoryCard>
-        <StoryCard></StoryCard>
-        <StoryCard></StoryCard>
-        <StoryCard></StoryCard>
-      </HStack>
+      <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={5}>
+        <CreateStoryCard></CreateStoryCard>
+        {stories.map((item, index) => (
+          <StoryCard imgUrl={item.imageUrl} key={item.name + index} {...item} />
+        ))}
+      </SimpleGrid>
+      <TellNewsCard avatarUrl={"profile.jpg"} name={"Yawen"}></TellNewsCard>
       <VStack>
+        <MarketplaceCardComponent></MarketplaceCardComponent>
+        <MarketplaceCardComponent></MarketplaceCardComponent>
+        <MarketplaceCardComponent></MarketplaceCardComponent>
         <MarketplaceCardComponent></MarketplaceCardComponent>
       </VStack>
     </VStack>
