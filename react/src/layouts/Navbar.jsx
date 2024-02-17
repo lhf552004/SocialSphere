@@ -15,6 +15,8 @@ import {
   useBreakpointValue,
   useDisclosure,
   HStack,
+  Badge,
+  Avatar,
 } from "@chakra-ui/react";
 import { NavLink, Link as RouterLink } from "react-router-dom";
 import {
@@ -37,7 +39,7 @@ import {
   FiMenu,
   FiMessageCircle,
 } from "react-icons/fi";
-import { FaGamepad } from "react-icons/fa";
+import { FaBell, FaFacebookMessenger, FaGamepad, FaTh } from "react-icons/fa";
 
 import logo from "../assets/logo.ico";
 import { useSigninCheck } from "reactfire";
@@ -102,35 +104,42 @@ export default function WithSubnavigation() {
           direction={"row"}
           spacing={6}
         >
-          {isSignedIn === true ? (
-            <Link
-              as={RouterLink}
-              to="/"
-              color="black"
-              _hover={{ textDecoration: "underline" }}
+          <IconButton
+            icon={<FaTh />}
+            isRound={true}
+            aria-label="Menu"
+            variant="ghost"
+          />
+
+          <IconButton
+            icon={<FaFacebookMessenger />}
+            isRound={true}
+            aria-label="Chat"
+            variant="ghost"
+          />
+
+          <Box position="relative">
+            <IconButton
+              icon={<FaBell />}
+              isRound={true}
+              aria-label="Notifications"
+              variant="ghost"
+            />
+            <Badge
+              colorScheme="red"
+              variant="solid"
+              rounded="full"
+              size="sm"
+              position="absolute"
+              top="-1"
+              right="-1"
+              zIndex="tooltip"
             >
-              <LogoutButton />
-            </Link>
-          ) : (
-            <Link
-              as={RouterLink}
-              to="/login"
-              color="black"
-              _hover={{ textDecoration: "underline" }}
-            >
-              <LoginButton />
-            </Link>
-          )}
-          {isSignedIn === false && (
-            <Link
-              as={RouterLink}
-              to="/signup"
-              color="black"
-              _hover={{ textDecoration: "underline" }}
-            >
-              <SignupButton />
-            </Link>
-          )}
+              1
+            </Badge>
+          </Box>
+
+          <Avatar size="sm" src="profile.jpg" as={RouterLink} to="/profile" />
         </Stack>
       </Flex>
 
