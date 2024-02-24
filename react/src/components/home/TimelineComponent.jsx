@@ -27,6 +27,7 @@ export const TimelineComponent = () => {
       avatarUrl: "Vanessa-Coish.png",
       name: "Vanessa Coish",
       title: "Fitness Enthusiast",
+      videoUrl: "videos/video1.mp4"
     },
     {
       imageUrl: "sushi-roll2.webp",
